@@ -2,11 +2,9 @@ package app;
 
 public class Gerente extends Funcionario {
 	private double salario;
-	private Vendedor vendedores;
 	
-	public Gerente(String nome, int idade) {
-		super(nome, idade);
-		salario = 0;
+	public Gerente(String nome, int idade, String loja) {
+		super(nome, idade, loja);
 	}
 
 	public double getSalario() {
@@ -16,8 +14,8 @@ public class Gerente extends Funcionario {
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
-	
-	public double calcularSalario(Gerente g, int vendas) {
+
+	public double calcularSalario(int vendas) {
 		for(int i = 0; i < vendas; i++) {
 			salario = salario + 50;
 		}
