@@ -53,7 +53,7 @@ public class Professor extends Pessoa{
 
 	@Override
 	public String toString() {
-		return "Repositoriocursos [cursos=" + Arrays.toString(cursos) + ", numCursos=" + numCursos + "]";
+		return String.format("Professor: %s", super.toString());
 	}
 		
 		

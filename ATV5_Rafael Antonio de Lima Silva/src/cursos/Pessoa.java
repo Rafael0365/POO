@@ -26,4 +26,10 @@ public class Pessoa {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	
+	@Override
+	public String toString(){
+        return String.format("Nome: %s, Endereço: %s ", getNome(),
+         getEndereco() );
+    }
 }

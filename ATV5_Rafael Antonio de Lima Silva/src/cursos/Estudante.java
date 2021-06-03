@@ -37,6 +37,12 @@ public class Estudante extends Pessoa{
 		}
 	}
 	
+	@Override
+	public String toString(){
+        return String.format("Estudante: %s",
+         super.toString());
+    }
+	
 	
 
 }
