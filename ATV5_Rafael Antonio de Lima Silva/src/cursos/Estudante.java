@@ -1,47 +1,58 @@
 package cursos;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Estudante extends Pessoa{
+	
+	@SuppressWarnings("unused")
 	private int numCursos;
-	private String[] cursos;
-	private int[] notas;
+	private ArrayList<String> cursos = new ArrayList<String>();
+	private ArrayList<Integer> notas = new ArrayList<Integer>();
 
-	public Estudante(String nome, String endereco,int qtdCursos) {
+	public Estudante(String nome, String endereco) {
 		super(nome, endereco);
-		this.cursos = new String[qtdCursos];
-		this.notas = new int[qtdCursos];
 	}
 	
-	public void addCursoNota(String c, int n) {
-		this.cursos[this.numCursos] = c;
-		this.notas[this.numCursos] = n;
-		this.numCursos = this.numCursos + 1;
+	public boolean addCursoNota(String c, int n) {
+		if(cursos.add(c.toLowerCase()) && notas.add(n)) {
+			numCursos++;
+			return true;	
+		}else {
+			return false;
+		}
 	}
 	
 	public double getMedia() {
-		double media;
 		double soma = 0;
-		for(int i=1;i<numCursos;i++) {
-			soma =  this.notas[i] + soma;
-			
+		for(int i = 0; i>notas.size(); i++) {
+			soma += notas.get(i);
 		}
-		media = soma/numCursos;
-		return media;
+		return soma/notas.size();
 	}
 	
+	public ArrayList<String> getCursos(){
+		return this.cursos;
+	} 
+	
+	
 	public void imprimeNotas() {
-		for(int i=1;i<numCursos;i++) {
-			System.out.println(this.notas[i]);
-			System.out.println("\n");
+		for(int i =0; i> notas.size(); i++) {
+			System.out.println("Curso: "+cursos.get(i)+" Nota:"+notas.get(i));
 		}
 	}
+	
 	
 	@Override
 	public String toString(){
-        return String.format("Estudante: %s",
-         super.toString());
-    }
+		String string = "Nome:"+this.getNome()+"|Endereço:"+this.getEndereco()+"\n";
+		
+		for(int i =0; i < notas.size(); i++) {
+			string += "Curso: "+cursos.get(i)+" Nota:"+notas.get(i)+"\n";
+		}
+		return string;
+				
+	}
+    
 	
 	
 

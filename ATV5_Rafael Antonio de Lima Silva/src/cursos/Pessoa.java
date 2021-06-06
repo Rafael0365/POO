@@ -1,6 +1,8 @@
 package cursos;
 
-public class Pessoa {
+import java.util.ArrayList;
+
+public abstract class Pessoa {
 	private String nome;
 	private String endereco;
 	
@@ -32,4 +34,6 @@ public class Pessoa {
         return String.format("Nome: %s, Endereço: %s ", getNome(),
          getEndereco() );
     }
+	
+	public abstract ArrayList<String> getCursos();
 }

@@ -1,24 +1,37 @@
 package app;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import cursos.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Pessoa pessoas[] = new Pessoa[4];
 		
-		pessoas[0] = new Estudante("Rafael","rua 10",2);
-		pessoas[1] = new Estudante("Joao","rua 11",2);
-		pessoas[2] = new Professor("Eduardo","rua 11",2);
-		pessoas[3] = new Estudante("Diogo","rua 13",2);
+		ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 		
-		((Estudante) pessoas[0]).addCursoNota("progamação",10);
-		((Estudante) pessoas[1]).addCursoNota("progamação",10);
-		((Professor) pessoas[2]).addCurso("progamação");
-		((Professor) pessoas[3]).addCurso("progamação");
-
-
+		Estudante estudante1 = new Estudante("Rafael","rua 10");
+		Estudante estudante2 = new Estudante("Joao","rua 11");
+		Professor professor1 = new Professor("Eduardo","rua 11");
+		Professor professor2 = new Professor("Diogo","rua 13");
+		
+		estudante1.addCursoNota("progamação",8);
+		estudante1.addCursoNota("banco de dados",4);
+		
+		estudante2.addCursoNota("progamação",8);
+		estudante2.addCursoNota("banco de dados",4);
+		
+		professor1.addCurso("progamação");
+		professor1.addCurso("banco de dados");
+		
+		professor2.addCurso("estatistica");
+		professor2.addCurso("sistemas operacionais");
+		
+		pessoas.add(estudante1);
+		pessoas.add(estudante2);
+		
+		pessoas.add(professor1);
+		pessoas.add(professor2);
+		
 	}
 
 }
